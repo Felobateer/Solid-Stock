@@ -1,0 +1,49 @@
+<section class="graph flex justify-center py-12 overflow-x-hidden mt-20">
+  <div class="w-3/5 h-96 bg-blue-950 rounded-lg" *ngIf="!selectedStock"></div>
+  <div class="graph w-75" [chart]="stockGraph" *ngIf="selectedStock"></div>
+</section>
+<section class="stocks pb-6 overflow-x-hidden">
+  <div>
+    <div>
+      <p class="text-white text-2xl m-6 font-bold text-center">Your Stocks</p>
+      <table class="table-fixed mx-auto">
+        <thead>
+          <tr class="gold">
+            <th>Stock name</th>
+            <th>Stock symbol</th>
+            <th>Stock price</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="getSelect().length === 0">
+          <tr class="text-white text-xl text-center font-semibold">
+            <td></td>
+            <td>Your stock portofolio is now empty.</td>
+          </tr>
+        </tbody>
+        <tbody *ngFor="let stock of getSelect()" class="z-0">
+          <tr class="text-white font-lg">
+            <td (click)="onStockClicked(stock)">
+              {{ stock.stock.description }}
+            </td>
+            <td (click)="onStockClicked(stock)">{{ stock.stock.symbol }}</td>
+            <td
+              (click)="onStockClicked(stock)"
+              [ngClass]="stock.stock.priceClass"
+            >
+              {{ stock.stock.price }}
+            </td>
+            <td>{{ stock.status }}</td>
+            <td>
+              <button
+                class="bg-red-500 rounded-lg w-16 h-7 z-20 text-white hover:bg-red-800"
+                (click)="handleClose(stock.stock.symbol)"
+              >
+                Close
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,71 @@
+$gold: #cbb26a;
+.gold {
+  color: $gold;
+}
+
+.increase {
+  color: green;
+}
+
+.decrease {
+  color: red;
+}
+
+table {
+  border-radius: 5%;
+  border-collapse: collapse;
+  border: 4px white solid;
+  width: 40%;
+  thead {
+    border-bottom: 1px #cbb26a solid;
+    th {
+      font-size: 20px;
+    }
+  }
+  tbody {
+    &:nth-child(odd) {
+      background-color: $gold;
+      tr {
+        color: black;
+      }
+    }
+    tr {
+      height: 35px;
+      font-size: 16px;
+      td {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  table {
+    width: 75%;
+  }
+}
+
+@media (max-width: 450px) {
+  table {
+    width: 90%;
+    thead {
+      th {
+        &:nth-child(2),
+        &:nth-child(4) {
+          display: none;
+        }
+      }
+    }
+    tbody {
+      td {
+        &:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .graph {
+    width: 95%;
+  }
+}

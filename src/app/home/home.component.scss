@@ -1,0 +1,109 @@
+$gold: #cbb26a;
+.gold {
+  color: $gold;
+}
+
+.increase {
+  color: green;
+}
+
+.decrease {
+  color: red;
+}
+
+.intro {
+  background-image: url(https://www.investors.com/wp-content/uploads/2019/01/Stock-MarketUptrend-04-adobe.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+  margin-bottom: 100px;
+  .introPic {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+    height: 100%;
+    display: flex;
+    .text {
+      margin: auto 25px;
+      width: 50%;
+      text-align: start;
+    }
+  }
+}
+
+table {
+  border-radius: 5%;
+  border-collapse: collapse;
+  border: 4px white solid;
+  width: 40%;
+  thead {
+    border-bottom: 1px #cbb26a solid;
+    th {
+      font-size: 20px;
+    }
+  }
+  tbody {
+    &:nth-child(odd) {
+      background-color: $gold;
+      tr {
+        color: black;
+      }
+    }
+    tr {
+      height: 35px;
+      font-size: 16px;
+      td {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.aboutUs {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  div {
+    margin: 20px;
+    padding: 20px;
+    width: 350px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 1100px) {
+  table {
+    width: 75%;
+  }
+}
+
+@media (max-width: 450px) {
+  .text {
+    p {
+      font-size: 24px;
+      &:first-child {
+        font-size: 38px;
+      }
+    }
+  }
+  table {
+    width: 90%;
+    thead {
+      th {
+        &:nth-child(2),
+        &:nth-child(4) {
+          display: none;
+        }
+      }
+    }
+    tbody {
+      td {
+        &:nth-child(2),
+        &:nth-child(4) {
+          display: none;
+        }
+      }
+    }
+  }
+}

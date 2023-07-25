@@ -1,0 +1,96 @@
+<section class="my-24">
+  <p class="gold text-3xl text-center mx-9">
+    Choose the stock you would like to trade in and go to trades to monitor the
+    updates on price.
+  </p>
+</section>
+
+<section class="marketReview d-flex">
+  <table class="table-fixed mx-auto">
+    <thead>
+      <tr class="gold">
+        <th></th>
+        <th>Stock Type</th>
+        <th>Stock name</th>
+        <th>Stock symbol</th>
+        <th>Stock price</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="stocks$ | async as stocks">
+      <tr
+        class="text-white font-lg"
+        *ngFor="
+          let stock of stocks
+            | paginate : { itemsPerPage: pageSize, currentPage: currentPage };
+          let i = index
+        "
+      >
+        <td><img [src]="stock.pic" /></td>
+        <td>{{ stock.type }}</td>
+        <td>{{ stock.description }}</td>
+        <td>{{ stock.symbol }}</td>
+        <td [ngClass]="stock.priceClass">{{ stock.price }}</td>
+        <td>
+          <div class="relative inline-block text-left">
+            <div>
+              <button
+                type="button"
+                class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset hover:divide-blue-900"
+                id="menu-button"
+                [attr.aria-expanded]="selectMenu[i]"
+                (click)="toggleMenu(i)"
+              >
+                Select
+                <svg
+                  class="-mr-1 h-5 w-5 text-gray-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              *ngIf="selectMenu[i]"
+              class="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="menu-button"
+              tabindex="-1"
+            >
+              <div class="py-1 flex justify-center" role="none">
+                <button
+                  (click)="addStock(stock, 'buy')"
+                  class="bg-green-600 w-44 text-center p-2 rounded-lg hover:bg-green-400"
+                >
+                  Buy
+                </button>
+              </div>
+              <div class="py-1 flex justify-center" role="none">
+                <button
+                  (click)="addStock(stock, 'sell')"
+                  class="bg-red-500 w-44 text-center p-2 rounded-lg hover:bg-red-400"
+                >
+                  Sell
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pageFlipper">
+    <div class="pagination">
+      <pagination-controls
+        [responsive]="true"
+        (pageChange)="onPageChange($event)"
+      ></pagination-controls>
+    </div>
+  </div>
+</section>

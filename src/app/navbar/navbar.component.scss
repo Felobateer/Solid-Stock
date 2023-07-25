@@ -1,0 +1,15 @@
+.gold {
+  color: #cbb26a;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+#notifications {
+  overflow-y: scroll;
+  max-height: 40vh;
+}
