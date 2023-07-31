@@ -6,3 +6,14 @@
 body {
   background-color: #1f2937;
 }
+
+@media (min-width: 2000px) {
+  body {
+    max-width: 1950px;
+  }
+
+  html {
+    display: flex;
+    justify-content: center;
+  }
+}
