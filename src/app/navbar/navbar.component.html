@@ -56,20 +56,20 @@
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <a
-              class="text-white rounded-md px-3 py-2 text-sm font-medium"
+              class="text-white rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-700 hover:text-white transform transition-transform duration-500"
               aria-current="page"
               routerLink="Home"
               [ngClass]="{ 'bg-gray-900 gold': isRouteActive('/Home') }"
               >Home</a
             >
             <a
-              class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white transform transition-transform duration-500 rounded-md px-3 py-2 text-sm font-medium"
               routerLink="market"
               [ngClass]="{ 'bg-gray-900 gold': isRouteActive('/market') }"
               >Market</a
             >
             <a
-              class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white transform transition-transform duration-500 rounded-md px-3 py-2 text-sm font-medium"
               routerLink="trades"
               [ngClass]="{ 'bg-gray-900 gold': isRouteActive('/trades') }"
               >Trades</a
@@ -77,14 +77,14 @@
             <a
               *ngIf="!signIn"
               routerLink="Login"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white transform transition-transform duration-500 rounded-md px-3 py-2 text-sm font-medium"
               [ngClass]="{ 'bg-gray-900 gold': isRouteActive('/Login') }"
               >Join us</a
             >
             <a
               *ngIf="signIn"
               routerLink="premium"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white transform transition-transform duration-500 rounded-md px-3 py-2 text-sm font-medium"
               [ngClass]="{ 'bg-gray-900 gold': isRouteActive('/Premium') }"
               >Go Premium</a
             >

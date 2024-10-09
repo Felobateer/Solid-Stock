@@ -16,10 +16,13 @@ $gold: #cbb26a;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 45rem;
-  margin-bottom: 100px;
+  height: 40rem;
+  margin-bottom: 300px;
+  border-radius: 15px;
+
   .introPic {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent);
+    border-radius: 15px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.75) 35%, transparent);
     height: 100%;
     display: flex;
     .text {
@@ -34,7 +37,7 @@ table {
   border-radius: 5%;
   border-collapse: collapse;
   border: 4px white solid;
-  width: 40%;
+  width: 60%;
   thead {
     border-bottom: 1px #cbb26a solid;
     th {
@@ -53,6 +56,11 @@ table {
       font-size: 16px;
       td {
         text-align: center;
+        img {
+          height: fit-content;
+          width: 35px;
+          margin: auto;
+        }
       }
     }
   }

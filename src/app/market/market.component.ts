@@ -26,6 +26,7 @@ export class MarketComponent implements OnInit {
   ngOnInit(): void {
     this.stocks$ = this.data.fetchStockPrices();
     this.selectMenu = new Array(this.pageSize).fill(false);
+    this.showStock();
   }
 
   addStock(stock: any, type: string) {
@@ -48,5 +49,11 @@ export class MarketComponent implements OnInit {
 
   toggleMenu(index: number) {
     this.selectMenu[index] = !this.selectMenu[index];
+  }
+
+  showStock() {
+    this.stocks$?.subscribe((data) => {
+      console.log(data);
+    });
   }
 }
